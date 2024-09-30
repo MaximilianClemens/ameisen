@@ -4,6 +4,17 @@ import math
 
 class Coord:
 
+    """ Ueberlegungen zur Distanz
+        AmeisenLaenge = 4
+        BauDurchmesser = inital:200, kann wachsen
+        Kaefer = 12
+        Apfel = 20
+        Zuckerhaufen = 24
+
+        Jeder Tick = 1 Schritt?
+    """
+
+
     @staticmethod
     def distance(self, pos1, pos2):
         distance_x = None

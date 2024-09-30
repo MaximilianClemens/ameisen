@@ -1,5 +1,8 @@
+from .element import Element
 
-class BaseAmeise:
+from .living import Living
+
+class BaseAmeise(Living):
 
     _pos:tuple[int, int, int] # X, Y, A
     _health: int
@@ -10,13 +13,21 @@ class BaseAmeise:
 
 
 
-    def __init__(self, id:int, volk):
+    def __init__(self, id:int, parent: Element):
         self
+
+    def tick(self):
+        super().tick()
 
     # debug
 
+    def on_hatching(self):
+        """ Triggered when the Ant births/hatches """
+        pass
+
     def think(self, message):
         """ Debug Message """
+        super().think(message)
 
     # getters
 

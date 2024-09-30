@@ -7,6 +7,9 @@ class Element:
     def __init__(self, pos: Tuple[int, int, int]):
         self._pos = pos
 
+    def think(self, message: str):
+        print(message)
+
     def get_pos(self):
         return self._pos
     

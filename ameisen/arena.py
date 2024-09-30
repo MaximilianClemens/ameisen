@@ -1,25 +1,32 @@
 import random
 from typing import Any, Type
 
+from .config import Config
 from .ameise import BaseAmeise
 from .colony import Colony
+
 
 from .coord import Coord
 
 class Arena:
 
     _ticks: int
+    
     _seed: Any
     _size: int
+    _config: Config
 
     _elements: list
     _teams: dict
 
-    def __init__(self, seed: Any, size: int = 5000):
+    def __init__(self, seed: Any, size:int = 5000, config: Config|None = None):
         self._ticks = 0
 
         self._seed = seed
         self._size = size
+        self._config = config
+        if not self._config:
+            self._config = Config()
 
         self._elements = []
         self._teams = {}
@@ -47,12 +54,16 @@ class Arena:
     def add_team(self, teamname: str, *class_references:Type[BaseAmeise]):
         self._teams[teamname] = []
         for class_reference in class_references:
-            new_colony = Colony(class_reference, self._new_pos_with_distance(10))
+            new_colony = Colony(class_reference, self._new_pos_with_distance(self._config.colony_distance))
             self._teams[teamname].append(new_colony)
             self._elements.append(new_colony)
 
 
     def run(self, limit:int = 0) -> None:
+        for teamname, team in self._teams.items():
+            for colony in team:
+                colony.spawn(self._config.start_spawn)
+        
         while True:
             for element in self._elements:
                 element.tick()
