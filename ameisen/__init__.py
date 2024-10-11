@@ -1,2 +1,10 @@
+from .game import Game
 from .ameise import BaseAmeise
-from .arena import Arena
+from .team import Team
+
+# Element x
+## Hill x
+## Living x
+### Ameise
+
+    ### Käfer

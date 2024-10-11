@@ -1,20 +1,13 @@
-from typing import Tuple
-
 class Element:
 
-    _pos: Tuple[int, int, int] # X, Y, A
+    _x: int
+    _y: int
+    _a: int
 
-    def __init__(self, pos: Tuple[int, int, int]):
-        self._pos = pos
+    def __init__(self, x:int, y:int, a:int):
+        self._x = x
+        self._y = y
+        self._a = a
 
-    def think(self, message: str):
-        print(message)
-
-    def get_pos(self):
-        return self._pos
-    
-    def on_tick(self) -> None:
+    def tick(self):
         pass
-
-    def tick(self) -> None:
-        self.on_tick()

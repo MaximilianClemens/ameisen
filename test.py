@@ -1,14 +1,8 @@
 import ameisen
-
 from clemeisen import Clemeisen
 
+game = ameisen.Game()
+game._config.seed = 'seeedy'
+game.add_team('Team 1', Clemeisen)
 
-arena = ameisen.Arena(
-    seed='HALLOWELT',
-    size=5
-)
-
-arena.add_team('Team Max', Clemeisen)
-
-arena.run(limit = 1000)
-
+game.run()
