@@ -1,13 +1,13 @@
 class Element:
 
-    _x: int
-    _y: int
-    _a: int
+    x: int
+    y: int
+    a: int
 
     def __init__(self, x:int, y:int, a:int):
-        self._x = x
-        self._y = y
-        self._a = a
+        self.x = x
+        self.y = y
+        self.a = a
 
     def tick(self):
         pass
